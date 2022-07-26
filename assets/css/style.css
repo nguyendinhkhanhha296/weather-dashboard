@@ -6,7 +6,6 @@
 
 }
 
-
 /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
 .row.content {
     height: 1500px;
@@ -16,6 +15,45 @@
 .sidenav {
   background-color: #f1f1f1;
   height: 100%;
+}
+
+#current-weather-conditions {
+  border-color: gray;
+  margin-left: 20px;
+  font-size: 17px;
+}
+
+.forecast {
+  margin-left: 20px;
+}
+
+/* Weather card styling */
+.weather-card{
+    width: 17rem;
+    background-color: rgb(36, 83, 130);
+    color: white;
+    text-align: center;
+    margin-left: 20px;
+    font-size: 17px;
+}
+
+/* UV coloring scheme for UV display */
+.uv-favorable{
+    background-color: green;
+    border-radius: 5px;
+    color: white;
+}
+
+.uv-moderate{
+    background-color: orange;
+    border-radius: 5px;
+    color: white;
+}
+
+.uv-severe{
+    background-color: red;
+    border-radius: 5px;
+    color: white;
 }
 
 /* On small screens, set height to 'auto' for sidenav and grid */

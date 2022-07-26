@@ -21,33 +21,33 @@
     <div class="container-fluid">
         <div class="row content">
           <div class="col-sm-3 sidenav">
+            <form>
             <h4>Search for a City</h4>
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search City..">
+              <input id="search-city" type="text" class="form-control" name="city" placeholder="Search City..">
               <span class="input-group-btn">
-                <button class="btn btn-default" type="button">
+                <button id="button" class="btn btn-default" type="button">
                   <span class="glyphicon glyphicon-search"></span>
                 </button>
               </span>
+            </div>
+            </form>
 
-              <div class="card hide" id="searched-cities-card">
-                <ul class="list-group list-group-flush" id="searched-cities-list">
-                </ul>
-              </div>
+              <ul id="searched-cities-list" class="list-group mt-4"></ul>
 
               <!-- clear storage button -->
-              <a id="clear-storage" href="#"></a>
-            </div>
+              <div class="block">
+                <a id="clear-storage" href="#"></a>
+              </div>
           </div>
     
           <!-- display current weather -->
-          <div class="col-lg-8">
-            <div class="row" id="current-weather-conditions">
+          <div id="content-right" class="col-md-9 pt-4">
+            <div class="border rounded" id="current-weather-conditions">
             </div>
           
           <!-- // display 5-day forcast -->
-          <div class="row" id="five-day-forecast">
-            <div class="card-deck w-100">
+            <div class="mt-5" id="five-day-forecast"> 
             </div>
           </div>
         </div>
