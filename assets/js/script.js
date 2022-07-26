@@ -17,9 +17,6 @@ var getCurrentConditions = (event) => {
       })
    
     .then((response) => {
-        return response.json();
-    })
-    .then((response) => {
         // Save city to local storage
         saveCity(city);
         $('#searched-cities-card').text("");
@@ -141,7 +138,7 @@ var renderCities = () => {
         if (lastCity){
             $('#search-city').attr("value", lastCity);
         } else {
-            $('#search-city').attr("value", "Hayward");
+            $('#search-city').attr("value", "Oakland");
         }
     } else {
         // Build key of last city written to localStorage
@@ -192,10 +189,10 @@ $('#searched-cities-list').on("click", (event) => {
 });
 
 // Clear old searched cities from localStorage event listener
-$("#clear-storage").on("click", (event) => {
-    localStorage.clear();
-    renderCities();
-});
+$("#clear-storage").on("click", function () {
+        localStorage.clear();
+        renderCities();
+    });
 
 // Render the searched cities
 renderCities();
