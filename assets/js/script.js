@@ -3,13 +3,6 @@ var APIKey = "3b4a5ad6f18675d8d8749471cad6bdde";
 var currentCity = "";
 var lastCity = "";
 
-// var handleErrors = (response) => {
-//     if (!response.ok) {
-//         throw Error(response.statusText);
-//     }
-//     return response;
-// }
-
 // Function to get and display the current conditions on Open Weather Maps
 var getCurrentConditions = (event) => {
     // Obtain city name from the search box
@@ -17,8 +10,12 @@ var getCurrentConditions = (event) => {
     currentCity= $('#search-city').val();
     // Set the queryURL to fetch from API using weather search - added units=imperial to fix
     let queryURL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`;
-    fetch(queryURL)
-    // .then(handleErrors)
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+      })
+   
     .then((response) => {
         return response.json();
     })
@@ -60,14 +57,7 @@ var getCurrentConditions = (event) => {
         .then(function(response) {
           uvQueryURL = response.value;
         })
-        // API solution for Cross-origin resource sharing (CORS) error: https://cors-anywhere.herokuapp.com/
-        // uvQueryURL = 'https://api.openuv.io/api/v1/uv?lat=-31.45&lng=115.67&dt=2018-01-24T10:50:52.283Z'+'x-access-token: 6967791d97a3719c103feb7a6f1d385c';
-        // Fetch the UV information and build the color display for the UV index
-        // fetch(uvQueryURL)
-        // .then(handleErrors)
-        // .then((response) => {
-        //     return response.json();
-        // })
+        
         .then((response) => {
             let uvIndex = uvQueryURL;
             $('#uvIndex').html(`UV Index: <span id="uvVal"> ${uvIndex}</span>`);
